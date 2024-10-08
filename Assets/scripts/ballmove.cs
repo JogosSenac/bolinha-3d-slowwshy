@@ -30,5 +30,25 @@ public class ballmove : MonoBehaviour
             rb.AddForce(transform.up * forcejump, ForceMode.Impulse);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+
+    if(other.gameObject.CompareTag("Lava"))
+    {
+        Destroy(this.gameObject);
+    }
+    }
+    
+
+    
+
    
 }
