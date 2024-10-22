@@ -1,8 +1,10 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
+using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class ballmove : MonoBehaviour
 {
@@ -11,10 +13,14 @@ public class ballmove : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private float velocidade;
     [SerializeField] private float forcejump;
+    public GameObject cubecoin;
+    public TextMeshProUGUI coinColeted;
+    [SerializeField] private int CoinsColector = 0;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+         
     }
 
     // Update is called once per frame
@@ -29,12 +35,18 @@ public class ballmove : MonoBehaviour
         {
             rb.AddForce(transform.up * forcejump, ForceMode.Impulse);
         }
+        coinColeted.text =  CoinsColector.ToString();
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Coin"))
         {
             Destroy(other.gameObject);
+            CoinsColector ++ ;
+        }
+        if(other.gameObject.CompareTag("Portal") && CoinsColector == 13)
+        {
+            SceneManager.LoadScene(2);
         }
     }
 
@@ -45,10 +57,9 @@ public class ballmove : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+    
     }
-    
-
-    
+       
 
    
 }

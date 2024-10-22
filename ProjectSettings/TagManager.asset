@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Coin
   - Lava
+  - checkpoint
+  - Portal
   layers:
   - Default
   - TransparentFX
