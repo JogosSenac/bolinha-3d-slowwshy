@@ -8,6 +8,7 @@ TagManager:
   - Lava
   - checkpoint
   - Portal
+  - chao
   layers:
   - Default
   - TransparentFX

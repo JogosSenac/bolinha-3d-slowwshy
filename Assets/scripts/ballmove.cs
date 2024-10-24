@@ -16,6 +16,7 @@ public class ballmove : MonoBehaviour
     public GameObject cubecoin;
     public TextMeshProUGUI coinColeted;
     [SerializeField] private int CoinsColector = 0;
+    private bool Jumping;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +32,11 @@ public class ballmove : MonoBehaviour
 
         transform.position += new Vector3(moveV * velocidade * Time.deltaTime, 0, -1 * moveH * velocidade * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && Jumping == false)
         {
+        
             rb.AddForce(transform.up * forcejump, ForceMode.Impulse);
+            Jumping = true;
         }
         coinColeted.text =  CoinsColector.ToString();
     }
@@ -44,9 +47,13 @@ public class ballmove : MonoBehaviour
             Destroy(other.gameObject);
             CoinsColector ++ ;
         }
-        if(other.gameObject.CompareTag("Portal") && CoinsColector == 13)
+        if(other.gameObject.CompareTag("Portal") && CoinsColector == 12)
         {
             SceneManager.LoadScene(2);
+        }
+        if(other.gameObject.CompareTag("Portal2"))
+        {
+            SceneManager.LoadScene(4);
         }
     }
 
@@ -56,6 +63,11 @@ public class ballmove : MonoBehaviour
     if(other.gameObject.CompareTag("Lava"))
     {
         Destroy(this.gameObject);
+        SceneManager.LoadScene(3);
+    }
+    if(other.gameObject.CompareTag("chao"))
+    {
+        Jumping = false;
     }
     
     }

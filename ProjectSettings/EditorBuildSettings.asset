@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
+    path: Assets/Scenes/Menu/Menu.unity
     guid: bdabb642d1641724db66d8ee250d2c24
   - enabled: 1
-    path: Assets/Scenes/Fase1.unity
+    path: Assets/Scenes/Fase1/Fase1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Fase2.unity
+    path: Assets/Scenes/Fase2/Fase2.unity
     guid: 5fcfcd64b5f50544baab389b5be63717
+  - enabled: 1
+    path: Assets/Scenes/Respawn/Respawn.unity
+    guid: 8b4965e54d9e8b045be831cd8dd2714b
+  - enabled: 1
+    path: "Assets/Scenes/Vit\xF3ria/Vit\xF3ria.unity"
+    guid: 55b35ed44c972804b8d6ca807d2d3b26
   m_configObjects: {}

@@ -7,10 +7,19 @@ public class Play : MonoBehaviour
 {
    public void play()
    {
-    SceneManager.LoadScene("Fase1");
+      SceneManager.LoadScene("Fase1");
    }
    public void Quit()
    {
       Application.Quit();
    }
+   public void VitóriaRE()
+   {
+      SceneManager.LoadScene(0);
+   }
+   public void Reviver()
+   {
+      SceneManager.LoadScene(1);
+   }
+
 }
